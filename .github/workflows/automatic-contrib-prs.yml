@@ -1,0 +1,35 @@
+name: Create CONTRIBUTING.md in OSS repositories
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Open CONTRIBUTING.md in OSS if it doesnt exist
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Find OSS repository in organization
+      uses: docker://ghcr.io/zkoppert/innersource-crawler:v1
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        ORGANIZATION: mziyut
+        TOPIC: open-source
+
+    - name: Open pull requests in OSS repository that are missing contrib files
+      uses: docker://ghcr.io/github/automatic-contrib-prs:v2
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        ORGANIZATION: mziyut
+        GH_ACTOR: ${{ secrets.GH_ACTOR }}
+        PR_TITLE: ${{ secrets.PR_TITLE }}
+        PR_BODY: ${{ secrets.PR_BODY }}
