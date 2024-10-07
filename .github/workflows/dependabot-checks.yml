@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Run evergreen action
-        uses: github/evergreen@v1.11.2
+        uses: github/evergreen@v1.15.2
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           ORGANIZATION: mziyut
