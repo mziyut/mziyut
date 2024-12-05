@@ -21,4 +21,4 @@ jobs:
         uses: github/evergreen@v1.15.3
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          ORGANIZATION: mziyut
+          REPOSITORY: mziyut/disposable-email-domains-js
