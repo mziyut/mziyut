@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Run evergreen action
-        uses: github/evergreen@v1.20.3
+        uses: github/evergreen@v1.24.5
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           REPOSITORY: mziyut/disposable-email-domains-js
