@@ -33,7 +33,7 @@ jobs:
         SEARCH_QUERY: '-reason:"not planned" owner:mziyut is:public created:${{ env.last_month }}'
 
     - name: Create issue
-      uses: peter-evans/create-issue-from-file@v5
+      uses: peter-evans/create-issue-from-file@v6
       with:
         title: Monthly issue metrics report
         token: ${{ secrets.GITHUB_TOKEN }}
